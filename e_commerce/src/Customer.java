@@ -58,6 +58,36 @@ public class Customer {
     }
 
     public void checkout() {
+
+        if (cart.isEmpty()) {
+            System.out.println("Cart is empty. Please add products to the cart before checkout.");
+            return;
+        }
+
+        if (balance <= 0) {
+            System.out.println("Insufficient balance. Please add funds to your account.");
+            return;
+        }
+
+        for (Map.Entry<Product, Integer> entry : cart.getProducts().entrySet())
+        {
+            Product product = entry.getKey();
+            if(product instanceof ExpirableProduct) {
+                ExpirableProduct expirableProduct = (ExpirableProduct) product;
+                if (expirableProduct.isExpired()) {
+                    System.out.println("Cannot checkout. Product " + product.getName() + " is expired.");
+                    return;
+                }
+            }
+            else if (product instanceof ExpirableShippableProduct) {
+                ExpirableShippableProduct expirableShippableProduct = (ExpirableShippableProduct) product;
+                if (expirableShippableProduct.isExpired()) {
+                    System.out.println("Cannot checkout. Product " + product.getName() + " is expired.");
+                    return;
+                }
+            }
+        }
+
         double total = 0.0;
         double shippingFees = 0.0;
         for (Map.Entry<Product, Integer> entry : cart.getProducts().entrySet()) {

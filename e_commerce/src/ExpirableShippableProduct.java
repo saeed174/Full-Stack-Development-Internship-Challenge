@@ -26,15 +26,20 @@ public class ExpirableShippableProduct extends Product implements Shippable , Ex
     }
 
     @Override
-    public boolean isShippable() {
+    public boolean isShiped() {
         return true;
     }
 
     @Override
-    public boolean isExpirable() {
-        return true;
+    public boolean isExpired() {
+        java.time.LocalDate expDate = java.time.LocalDate.parse(expirationDate);
+        java.time.LocalDate today = java.time.LocalDate.now();
+        if (expDate.isBefore(today)) {
+            return true;
+        }
+        return false;
     }
-
+    
     @Override
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;

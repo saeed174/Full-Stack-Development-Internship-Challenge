@@ -52,11 +52,11 @@ class Product
         return quantity > 0;
     }
 
-    public boolean isExpirable()
+    public boolean isExpired()
     {
         return false;
     }
-    public boolean isShippable()
+    public boolean isShiped()
     {
         return false;
     }

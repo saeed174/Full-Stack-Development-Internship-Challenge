@@ -7,12 +7,17 @@ public class ExpirableProduct extends Product implements Expirable{
     }
 
     @Override
-    public boolean isExpirable() {
-        return true;
+    public boolean isExpired() {
+        java.time.LocalDate expDate = java.time.LocalDate.parse(expirationDate);
+        java.time.LocalDate today = java.time.LocalDate.now();
+        if (expDate.isBefore(today)) {
+            return true;
+        }
+        return false;
     }
 
     @Override
-    public boolean isShippable() {
+    public boolean isShiped() {
         return false;
     }
 

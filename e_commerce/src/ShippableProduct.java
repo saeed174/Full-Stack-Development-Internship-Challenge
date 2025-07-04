@@ -9,12 +9,12 @@ public class ShippableProduct extends Product implements Shippable {
     }
 
     @Override
-    public boolean isExpirable() {
+    public boolean isExpired() {
         return false;
     }
 
     @Override
-    public boolean isShippable() {
+    public boolean isShiped() {
         return true;
     }
 
