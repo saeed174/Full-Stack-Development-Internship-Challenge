@@ -29,7 +29,14 @@ public class Cart {
         }
         else
         {
-            this.products.put(product, quantity);
+            if (products.containsKey(product)) {
+                int currentQuantity = products.get(product);
+                this.products.put(product, currentQuantity + quantity);
+            }
+            else
+            {
+                this.products.put(product, quantity);
+            }
             product.setQuantity(product.getQuantity() - quantity);
         }
     }
