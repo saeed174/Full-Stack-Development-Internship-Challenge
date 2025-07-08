@@ -1,4 +1,3 @@
-# Full-Stack-Development-Internship-Challenge
 # 🛒 Full Stack Development Internship Challenge
 
 This is a **Java-based shopping cart system** that models real-world purchasing behavior. It demonstrates object-oriented programming, exception handling, and encapsulation through a hierarchy of products, customers, and checkout logic.
