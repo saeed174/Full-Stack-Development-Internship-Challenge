@@ -34,4 +34,6 @@ The project simulates a minimal e-commerce shopping system that includes:
    ```bash
    git clone https://github.com/saeed174/Full-Stack-Development-Internship-Challenge.git
    cd Full-Stack-Development-Internship-Challenge
+
+## Output Screen
 ![Sample Output](screenshot.png)
